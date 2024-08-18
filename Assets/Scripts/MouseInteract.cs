@@ -7,6 +7,17 @@ public class MouseInteract : MonoBehaviour
 
     public float offsetDistance;
 
+    public GameObject[] uIS;
+    
+    void Start()
+    {
+        foreach (GameObject uI in uIS)
+        {
+            uI.SetActive(false);
+        }
+        uIS[0].SetActive(true);
+    }
+    
     void Update()
     {
         Vector3 rayDirection = transform.forward;
@@ -23,7 +34,46 @@ public class MouseInteract : MonoBehaviour
             {
                 Debug.Log(hit.collider.gameObject.name);
             }
+
+            if (hit.collider.gameObject.name == "Locker Key")
+            {
+                foreach (GameObject uI in uIS)
+                {
+                    uI.SetActive(false);
+                }
+                uIS[1].SetActive(true);
+
+                if (Input.GetButtonDown("Intereact"))
+                {
+                    GameObject key = hit.collider.gameObject;
+                    Destroy(key);
+                }
+            }
+            else if (hit.collider.gameObject.name == "Chest Key")
+            {
+                foreach (GameObject uI in uIS)
+                {
+                    uI.SetActive(false);
+                }
+                uIS[2].SetActive(true);
+
+                if (Input.GetButtonDown("Intereact"))
+                {
+                    GameObject key = hit.collider.gameObject;
+                    Destroy(key);
+                }
+            }
+            else
+            {
+                foreach (GameObject uI in uIS)
+                {
+                    uI.SetActive(false);
+                }
+                uIS[0].SetActive(true);
+            }
         }
     }
+
+    
 
 }
