@@ -8,7 +8,44 @@ public class MouseInteract : MonoBehaviour
     public float offsetDistance;
 
     public GameObject[] uIS;
+
+    [Header("Player Settings")]
+    public GameObject player;
+    public Vector3 playerRotation;
+
+    [Header("Locker Key Settings")]
+    public Vector3 newLockerKeyPostion;
+    public Vector3 newLockerKeyRotation;
+    public Rigidbody lockerKeyCollider;
+
+    [Header("Floor Key Settings")]
+    public Vector3 newFloorKeyPostion;
+    public Vector3 newFloorKeyRotation;
+    public Rigidbody floorKeyGravity;
+    public MeshCollider floorKeyCollider;
+
+    [Header("Barrel Key Settings")]
+
+    [Header("Safe Key Settings")]
+
+    [Header("Padloack Key Settings")]
     
+    [Header("Crowbar Settings")]
+    
+    [Header("Chest Key Settings")]
+    
+    [Header("Red Key Settings")]
+    public Rigidbody redKeyGravity;
+    public MeshCollider redKeyCollider;
+
+    [Header("Blue Key Settings")]
+    public Rigidbody blueKeyGravity;
+    public MeshCollider blueKeyCollider;
+
+    [Header("Black Key Settings")]
+    public Rigidbody blackKeyGravity;
+    public MeshCollider blackKeyCollider;
+
     void Start()
     {
         foreach (GameObject uI in uIS)
@@ -46,7 +83,9 @@ public class MouseInteract : MonoBehaviour
                 if (Input.GetButtonDown("Intereact"))
                 {
                     GameObject gameObject = hit.collider.gameObject;
-                    Destroy(gameObject); //subject to change
+                    //floorKeyCollider.useGravity = false;
+                    gameObject.transform.position = newFloorKeyPostion;
+                    gameObject.transform.rotation = Quaternion.Euler(newFloorKeyRotation);
                 }
             }
             else if (hit.collider.gameObject.name == "Floor Key")
@@ -60,7 +99,14 @@ public class MouseInteract : MonoBehaviour
                 if (Input.GetButtonDown("Intereact"))
                 {
                     GameObject gameObject = hit.collider.gameObject;
-                    Destroy(gameObject);//subject to change
+                    floorKeyGravity.useGravity = false;
+                    floorKeyCollider.enabled = false;
+                    player.transform.rotation = Quaternion.Euler(playerRotation);
+                    gameObject.transform.SetParent(player.transform);
+                    gameObject.transform.localPosition = Vector3.zero;
+                    gameObject.transform.localPosition = newFloorKeyPostion;
+                    gameObject.transform.rotation = Quaternion.Euler(newFloorKeyRotation);
+                    
                 }
             }
             else if (hit.collider.gameObject.name == "Barrel Key")
@@ -144,7 +190,13 @@ public class MouseInteract : MonoBehaviour
                 if (Input.GetButtonDown("Intereact"))
                 {
                     GameObject gameObject = hit.collider.gameObject;
-                    Destroy(gameObject);//subject to change
+                    redKeyGravity.useGravity = false;
+                    redKeyCollider.enabled = false;
+                    player.transform.rotation = Quaternion.Euler(playerRotation);
+                    gameObject.transform.SetParent(player.transform);
+                    gameObject.transform.localPosition = Vector3.zero;
+                    gameObject.transform.localPosition = newFloorKeyPostion;
+                    gameObject.transform.rotation = Quaternion.Euler(newFloorKeyRotation);
                 }
             }
             else if (hit.collider.gameObject.name == "Blue Key")
@@ -158,7 +210,13 @@ public class MouseInteract : MonoBehaviour
                 if (Input.GetButtonDown("Intereact"))
                 {
                     GameObject gameObject = hit.collider.gameObject;
-                    Destroy(gameObject);//subject to change
+                    blueKeyGravity.useGravity = false;
+                    blueKeyCollider.enabled = false;
+                    player.transform.rotation = Quaternion.Euler(playerRotation);
+                    gameObject.transform.SetParent(player.transform);
+                    gameObject.transform.localPosition = Vector3.zero;
+                    gameObject.transform.localPosition = newFloorKeyPostion;
+                    gameObject.transform.rotation = Quaternion.Euler(newFloorKeyRotation);
                 }
             }
             else if (hit.collider.gameObject.name == "Black Key")
@@ -172,7 +230,13 @@ public class MouseInteract : MonoBehaviour
                 if (Input.GetButtonDown("Intereact"))
                 {
                     GameObject gameObject = hit.collider.gameObject;
-                    Destroy(gameObject);//subject to change
+                    blackKeyGravity.useGravity = false;
+                    blackKeyCollider.enabled = false;
+                    player.transform.rotation = Quaternion.Euler(playerRotation);
+                    gameObject.transform.SetParent(player.transform);
+                    gameObject.transform.localPosition = Vector3.zero;
+                    gameObject.transform.localPosition = newFloorKeyPostion;
+                    gameObject.transform.rotation = Quaternion.Euler(newFloorKeyRotation);
                 }
             }
             else if (hit.collider.gameObject.name == "Floor 2 Door")
