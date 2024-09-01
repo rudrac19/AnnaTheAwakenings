@@ -16,7 +16,8 @@ public class MouseInteract : MonoBehaviour
     [Header("Locker Key Settings")]
     public Vector3 newLockerKeyPostion;
     public Vector3 newLockerKeyRotation;
-    public Rigidbody lockerKeyCollider;
+    public Rigidbody lockerKeyGravity;
+    public MeshCollider lockerKeyCollider;
 
     [Header("Floor Key Settings")]
     public Vector3 newFloorKeyPostion;
@@ -25,15 +26,35 @@ public class MouseInteract : MonoBehaviour
     public MeshCollider floorKeyCollider;
 
     [Header("Barrel Key Settings")]
+    public Vector3 newBarrelKeyPostion;
+    public Vector3 newBarrelKeyRotation;
+    public Rigidbody barrelKeyGravity;
+    public MeshCollider barrelKeyCollider;
 
     [Header("Safe Key Settings")]
-
+    public Vector3 newSafeKeyPostion;
+    public Vector3 newSafeKeyRotation;
+    public Rigidbody safeKeyGravity;
+    public MeshCollider safeKeyCollider;
+    
     [Header("Padloack Key Settings")]
-    
+    public Vector3 newPadlockKeyPostion;
+    public Vector3 newPadlockKeyRotation;
+    public Rigidbody padlockKeyGravity;
+    public MeshCollider padlockKeyCollider;
+
     [Header("Crowbar Settings")]
-    
+    public Vector3 newCrowbarPostion;
+    public Vector3 newCrowbarRotation;
+    public Rigidbody crowbarGravity;
+    public MeshCollider crowbarCollider;
+
     [Header("Chest Key Settings")]
-    
+    public Vector3 newChestKeyPostion;
+    public Vector3 newChestKeyRotation;
+    public Rigidbody chestKeyGravity;
+    public MeshCollider chestKeyCollider;
+
     [Header("Red Key Settings")]
     public Rigidbody redKeyGravity;
     public MeshCollider redKeyCollider;
@@ -83,9 +104,14 @@ public class MouseInteract : MonoBehaviour
                 if (Input.GetButtonDown("Intereact"))
                 {
                     GameObject gameObject = hit.collider.gameObject;
-                    //floorKeyCollider.useGravity = false;
-                    gameObject.transform.position = newFloorKeyPostion;
-                    gameObject.transform.rotation = Quaternion.Euler(newFloorKeyRotation);
+                    lockerKeyGravity.useGravity = false;
+                    lockerKeyCollider.enabled = false;
+                    player.transform.rotation = Quaternion.Euler(playerRotation);
+                    gameObject.transform.SetParent(player.transform);
+                    gameObject.transform.localPosition = Vector3.zero;
+                    gameObject.transform.localPosition = newLockerKeyPostion;
+                    gameObject.transform.rotation = Quaternion.Euler(newLockerKeyRotation);
+
                 }
             }
             else if (hit.collider.gameObject.name == "Floor Key")
@@ -120,7 +146,13 @@ public class MouseInteract : MonoBehaviour
                 if (Input.GetButtonDown("Intereact"))
                 {
                     GameObject gameObject = hit.collider.gameObject;
-                    Destroy(gameObject);//subject to change
+                    barrelKeyGravity.useGravity = false;
+                    barrelKeyCollider.enabled = false;
+                    player.transform.rotation = Quaternion.Euler(playerRotation);
+                    gameObject.transform.SetParent(player.transform);
+                    gameObject.transform.localPosition = Vector3.zero;
+                    gameObject.transform.localPosition = newBarrelKeyPostion;
+                    gameObject.transform.rotation = Quaternion.Euler(newBarrelKeyRotation);
                 }
             }
             else if (hit.collider.gameObject.name == "Safe Key")
@@ -134,7 +166,13 @@ public class MouseInteract : MonoBehaviour
                 if (Input.GetButtonDown("Intereact"))
                 {
                     GameObject gameObject = hit.collider.gameObject;
-                    Destroy(gameObject);//subject to change
+                    safeKeyGravity.useGravity = false;
+                    safeKeyCollider.enabled = false;
+                    player.transform.rotation = Quaternion.Euler(playerRotation);
+                    gameObject.transform.SetParent(player.transform);
+                    gameObject.transform.localPosition = Vector3.zero;
+                    gameObject.transform.localPosition = newSafeKeyPostion;
+                    gameObject.transform.rotation = Quaternion.Euler(newSafeKeyRotation);
                 }
             }
             else if (hit.collider.gameObject.name == "Padlock Key")
@@ -148,7 +186,13 @@ public class MouseInteract : MonoBehaviour
                 if (Input.GetButtonDown("Intereact"))
                 {
                     GameObject gameObject = hit.collider.gameObject;
-                    Destroy(gameObject);//subject to change
+                    padlockKeyGravity.useGravity = false;
+                    padlockKeyCollider.enabled = false;
+                    player.transform.rotation = Quaternion.Euler(playerRotation);
+                    gameObject.transform.SetParent(player.transform);
+                    gameObject.transform.localPosition = Vector3.zero;
+                    gameObject.transform.localPosition = newPadlockKeyPostion;
+                    gameObject.transform.rotation = Quaternion.Euler(newPadlockKeyRotation);
                 }
             }
             else if (hit.collider.gameObject.name == "Crowbar")
@@ -162,7 +206,13 @@ public class MouseInteract : MonoBehaviour
                 if (Input.GetButtonDown("Intereact"))
                 {
                     GameObject gameObject = hit.collider.gameObject;
-                    Destroy(gameObject);//subject to change
+                    crowbarGravity.useGravity = false;
+                    crowbarCollider.enabled = false;
+                    player.transform.rotation = Quaternion.Euler(playerRotation);
+                    gameObject.transform.SetParent(player.transform);
+                    gameObject.transform.localPosition = Vector3.zero;
+                    gameObject.transform.localPosition = newCrowbarPostion;
+                    gameObject.transform.rotation = Quaternion.Euler(newCrowbarRotation);
                 }
             }
             else if (hit.collider.gameObject.name == "Chest Key")
@@ -176,7 +226,13 @@ public class MouseInteract : MonoBehaviour
                 if (Input.GetButtonDown("Intereact"))
                 {
                     GameObject gameObject = hit.collider.gameObject;
-                    Destroy(gameObject);//subject to change
+                    chestKeyGravity.useGravity = false;
+                    chestKeyCollider.enabled = false;
+                    player.transform.rotation = Quaternion.Euler(playerRotation);
+                    gameObject.transform.SetParent(player.transform);
+                    gameObject.transform.localPosition = Vector3.zero;
+                    gameObject.transform.localPosition = newChestKeyPostion;
+                    gameObject.transform.rotation = Quaternion.Euler(newChestKeyRotation);
                 }
             }
             else if (hit.collider.gameObject.name == "Red Key")

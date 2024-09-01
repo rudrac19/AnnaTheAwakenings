@@ -23,7 +23,7 @@ public class MouseMove : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
 
         xRotate -= mouseY;
-        xRotate = Mathf.Clamp(xRotate, -90f, 45f);
+        xRotate = Mathf.Clamp(xRotate, -90f, 90f);
 
         transform.localRotation = Quaternion.Euler(xRotate, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
