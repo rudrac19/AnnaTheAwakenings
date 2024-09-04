@@ -336,6 +336,21 @@ public class MouseInteract : MonoBehaviour
                     player.transform.rotation = Quaternion.Euler(playerRotationInSecondFloor);
                 }
             }
+            else if (hit.collider.gameObject.name == "Floor 1 Door")
+            {
+                foreach (GameObject uI in uIS)
+                {
+                    uI.SetActive(false);
+                }
+                uIS[12].SetActive(true);
+
+                if (Input.GetButtonDown("Intereact"))
+                {
+                    GameObject gameObject = hit.collider.gameObject;
+                    player.transform.position = playerPositionInFirstFloor;
+                    player.transform.rotation = Quaternion.Euler(playerRotationInFirstFloor);
+                }
+            }
             else if (hit.collider.gameObject.name == "Chest")
             {
                 foreach (GameObject uI in uIS)
