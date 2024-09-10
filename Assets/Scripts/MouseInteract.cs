@@ -117,7 +117,7 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[1].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact"))
+                if (Input.GetButtonDown("Intereact") && holding == "")
                 {
                     holding = "Locker Key";
                     GameObject gameObject = hit.collider.gameObject;
@@ -139,7 +139,7 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[2].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact"))
+                if (Input.GetButtonDown("Intereact") && holding == "")
                 {
                     holding = "Floor Key";
                     GameObject gameObject = hit.collider.gameObject;
@@ -161,7 +161,7 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[3].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact"))
+                if (Input.GetButtonDown("Intereact") && holding == "")
                 {
                     holding = "Barrel Key";
                     GameObject gameObject = hit.collider.gameObject;
@@ -182,7 +182,7 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[4].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact"))
+                if (Input.GetButtonDown("Intereact") && holding == "")
                 {
                     holding = "Safe Key";
                     GameObject gameObject = hit.collider.gameObject;
@@ -203,7 +203,7 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[5].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact"))
+                if (Input.GetButtonDown("Intereact") && holding == "")
                 {
                     holding = "Padlock Key";
                     GameObject gameObject = hit.collider.gameObject;
@@ -224,7 +224,7 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[6].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact"))
+                if (Input.GetButtonDown("Intereact") && holding == "")
                 {
                     holding = "Crowbar";
                     GameObject gameObject = hit.collider.gameObject;
@@ -245,7 +245,7 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[7].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact"))
+                if (Input.GetButtonDown("Intereact") && holding == "")
                 {
                     holding = "Chest Key";
                     GameObject gameObject = hit.collider.gameObject;
@@ -266,7 +266,7 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[8].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact"))
+                if (Input.GetButtonDown("Intereact") && holding == "")
                 {
                     holding = "Red Key";
                     GameObject gameObject = hit.collider.gameObject;
@@ -287,7 +287,7 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[9].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact"))
+                if (Input.GetButtonDown("Intereact") && holding == "")
                 {
                     holding = "Blue Key";
                     GameObject gameObject = hit.collider.gameObject;
@@ -308,7 +308,7 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[10].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact"))
+                if (Input.GetButtonDown("Intereact") && holding == "")
                 {
                     holding = "Black Key";
                     GameObject gameObject = hit.collider.gameObject;
