@@ -84,6 +84,10 @@ public class MouseInteract : MonoBehaviour
     public Rigidbody blackKeyGravity;
     public MeshCollider blackKeyCollider;
 
+    [Header("Unlocked/Locked")]
+    public bool isFloor2Unlocked = false;
+
+
     void Start()
     {
         foreach (GameObject uI in uIS)
@@ -403,13 +407,18 @@ public class MouseInteract : MonoBehaviour
 
                 if (Input.GetButtonDown("Intereact"))
                 {
-                    if (holding == "Floor Key")
+                    if (holding == "Floor Key" && !isFloor2Unlocked)
                     {
                         GameObject gameObject = hit.collider.gameObject;
                         player.transform.position = playerPositionInSecondFloor;
                         player.transform.rotation = Quaternion.Euler(playerRotationInSecondFloor);
+                        isFloor2Unlocked = true;
                     }
-                    else { 
+                    else if (isFloor2Unlocked)
+                    {
+                        GameObject gameObject = hit.collider.gameObject;
+                        player.transform.position = playerPositionInSecondFloor;
+                        player.transform.rotation = Quaternion.Euler(playerRotationInSecondFloor);
                     }
                 }
             }
