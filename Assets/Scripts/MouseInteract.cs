@@ -543,7 +543,7 @@ public class MouseInteract : MonoBehaviour
 
     IEnumerator CantPickUpText(int itemIndex)
     {
-        for (int i = 0; i < cantPickUpUI.Count; i++)
+        for (int i = 0; i < cantPickUpUI.Length; i++)
         {
             cantPickUpUI[i].SetActive(false);
         }
@@ -551,4 +551,82 @@ public class MouseInteract : MonoBehaviour
         yield return new WaitForSeconds(3f);
         cantPickUpUI[itemIndex].SetActive(false);
     }
+
+    public void Drop()
+    {
+        if (holding != "")
+        {
+            if (holding == "Locker Key")
+            {
+                lockerKey.transform.SetParent(keys.transform);
+                lockerKeyGravity.useGravity = true;
+                lockerKeyCollider.enabled = true;
+                holding = "";
+            }
+            else if (holding == "Floor Key")
+            {
+                floorKey.transform.SetParent(keys.transform);
+                floorKeyGravity.useGravity = true;
+                floorKeyCollider.enabled = true;
+                holding = "";
+            }
+            else if (holding == "Barrel Key")
+            {
+                barrelKey.transform.SetParent(keys.transform);
+                barrelKeyGravity.useGravity = true;
+                barrelKeyCollider.enabled = true;
+                holding = "";
+            }
+            else if (holding == "Safe Key" )
+            {
+                safeKey.transform.SetParent(keys.transform);
+                safeKeyGravity.useGravity = true;
+                safeKeyCollider.enabled = true;
+                holding = "";
+            }
+            else if (holding == "Padlock Key")
+            {
+                padlockKey.transform.SetParent(keys.transform);
+                padlockKeyGravity.useGravity = true;
+                padlockKeyCollider.enabled = true;
+                holding = "";
+            }
+            else if (holding == "Crowbar" )
+            {
+                crowbar.transform.SetParent(keys.transform);
+                crowbarGravity.useGravity = true;
+                crowbarCollider.enabled = true;
+                holding = "";
+            }
+            else if (holding == "Chest Key" )
+            {
+                chestKey.transform.SetParent(keys.transform);
+                chestKeyGravity.useGravity = true;
+                chestKeyCollider.enabled = true;
+                holding = "";
+            }
+            else if (holding == "Red Key" )
+            {
+                redKey.transform.SetParent(keys.transform);
+                redKeyGravity.useGravity = true;
+                redKeyCollider.enabled = true;
+                holding = "";
+            }
+            else if (holding == "Blue Key" )
+            {
+                blueKey.transform.SetParent(keys.transform);
+                blueKeyGravity.useGravity = true;
+                blueKeyCollider.enabled = true;
+                holding = "";
+            }
+            else if (holding == "Black Key" )
+            {
+                blackKey.transform.SetParent(keys.transform);
+                blackKeyGravity.useGravity = true;
+                blackKeyCollider.enabled = true;
+                holding = "";
+            }
+        }
+    }
+
 }
