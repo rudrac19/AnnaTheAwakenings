@@ -9,6 +9,7 @@ public class MouseInteract : MonoBehaviour
     public string holding = "";
     public GameObject keys;
 
+    public GameObject[] cantPickUpUI;
     public GameObject[] uIS;
 
     [Header("Player Settings")]
@@ -117,17 +118,24 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[1].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact") && holding == "")
+                if (Input.GetButtonDown("Intereact"))
                 {
-                    holding = "Locker Key";
-                    GameObject gameObject = hit.collider.gameObject;
-                    lockerKeyGravity.useGravity = false;
-                    lockerKeyCollider.enabled = false;
-                    player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
-                    gameObject.transform.SetParent(player.transform);
-                    gameObject.transform.localPosition = Vector3.zero;
-                    gameObject.transform.localPosition = newLockerKeyPostion;
-                    gameObject.transform.rotation = Quaternion.Euler(newLockerKeyRotation);
+                    if (holding == "")
+                    {
+                        holding = "Locker Key";
+                        GameObject gameObject = hit.collider.gameObject;
+                        lockerKeyGravity.useGravity = false;
+                        lockerKeyCollider.enabled = false;
+                        player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
+                        gameObject.transform.SetParent(player.transform);
+                        gameObject.transform.localPosition = Vector3.zero;
+                        gameObject.transform.localPosition = newLockerKeyPostion;
+                        gameObject.transform.rotation = Quaternion.Euler(newLockerKeyRotation);
+                    }
+                    else 
+                    {
+                        StartCoroutine(CantPickUpText(1));
+                    }
 
                 }
             }
@@ -139,19 +147,27 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[2].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact") && holding == "")
+                if (Input.GetButtonDown("Intereact"))
                 {
-                    holding = "Floor Key";
-                    GameObject gameObject = hit.collider.gameObject;
-                    floorKeyGravity.useGravity = false;
-                    floorKeyCollider.enabled = false;
-                    player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
-                    gameObject.transform.SetParent(player.transform);
-                    gameObject.transform.localPosition = Vector3.zero;
-                    gameObject.transform.localPosition = newFloorKeyPostion;
-                    gameObject.transform.rotation = Quaternion.Euler(newFloorKeyRotation);
-                    
+                    if ( holding == "")
+                    {   
+                        holding = "Floor Key";
+                        GameObject gameObject = hit.collider.gameObject;
+                        floorKeyGravity.useGravity = false;
+                        floorKeyCollider.enabled = false;
+                        player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
+                        gameObject.transform.SetParent(player.transform);
+                        gameObject.transform.localPosition = Vector3.zero;
+                        gameObject.transform.localPosition = newFloorKeyPostion;
+                        gameObject.transform.rotation = Quaternion.Euler(newFloorKeyRotation);
+                    }
+                    else
+                    {
+                        StartCoroutine(CantPickUpText(2));
+                    }
+
                 }
+                
             }
             else if (hit.collider.gameObject.name == "Barrel Key")
             {
@@ -161,17 +177,24 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[3].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact") && holding == "")
+                if (Input.GetButtonDown("Intereact"))
                 {
-                    holding = "Barrel Key";
-                    GameObject gameObject = hit.collider.gameObject;
-                    barrelKeyGravity.useGravity = false;
-                    barrelKeyCollider.enabled = false;
-                    player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
-                    gameObject.transform.SetParent(player.transform);
-                    gameObject.transform.localPosition = Vector3.zero;
-                    gameObject.transform.localPosition = newBarrelKeyPostion;
-                    gameObject.transform.rotation = Quaternion.Euler(newBarrelKeyRotation);
+                    if( holding == "")
+                    {   
+                        holding = "Barrel Key";
+                        GameObject gameObject = hit.collider.gameObject;
+                        barrelKeyGravity.useGravity = false;
+                        barrelKeyCollider.enabled = false;
+                        player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
+                        gameObject.transform.SetParent(player.transform);
+                        gameObject.transform.localPosition = Vector3.zero;
+                        gameObject.transform.localPosition = newBarrelKeyPostion;
+                        gameObject.transform.rotation = Quaternion.Euler(newBarrelKeyRotation);
+                    }
+                    else
+                    {
+                        StartCoroutine(CantPickUpText(3));
+                    }
                 }
             }
             else if (hit.collider.gameObject.name == "Safe Key")
@@ -182,17 +205,24 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[4].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact") && holding == "")
+                if (Input.GetButtonDown("Intereact"))
                 {
-                    holding = "Safe Key";
-                    GameObject gameObject = hit.collider.gameObject;
-                    safeKeyGravity.useGravity = false;
-                    safeKeyCollider.enabled = false;
-                    player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
-                    gameObject.transform.SetParent(player.transform);
-                    gameObject.transform.localPosition = Vector3.zero;
-                    gameObject.transform.localPosition = newSafeKeyPostion;
-                    gameObject.transform.rotation = Quaternion.Euler(newSafeKeyRotation);
+                    if ( holding == "")
+                    {   
+                        holding = "Safe Key";
+                        GameObject gameObject = hit.collider.gameObject;
+                        safeKeyGravity.useGravity = false;
+                        safeKeyCollider.enabled = false;
+                        player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
+                        gameObject.transform.SetParent(player.transform);
+                        gameObject.transform.localPosition = Vector3.zero;
+                        gameObject.transform.localPosition = newSafeKeyPostion;
+                        gameObject.transform.rotation = Quaternion.Euler(newSafeKeyRotation);
+                    }
+                    else
+                    {
+                        StartCoroutine(CantPickUpText(4));
+                    }
                 }
             }
             else if (hit.collider.gameObject.name == "Padlock Key")
@@ -203,17 +233,24 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[5].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact") && holding == "")
+                if (Input.GetButtonDown("Intereact"))
                 {
-                    holding = "Padlock Key";
-                    GameObject gameObject = hit.collider.gameObject;
-                    padlockKeyGravity.useGravity = false;
-                    padlockKeyCollider.enabled = false;
-                    player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
-                    gameObject.transform.SetParent(player.transform);
-                    gameObject.transform.localPosition = Vector3.zero;
-                    gameObject.transform.localPosition = newPadlockKeyPostion;
-                    gameObject.transform.rotation = Quaternion.Euler(newPadlockKeyRotation);
+                    if (holding == "")
+                    {   
+                        holding = "Padlock Key";
+                        GameObject gameObject = hit.collider.gameObject;
+                        padlockKeyGravity.useGravity = false;
+                        padlockKeyCollider.enabled = false;
+                        player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
+                        gameObject.transform.SetParent(player.transform);
+                        gameObject.transform.localPosition = Vector3.zero;
+                        gameObject.transform.localPosition = newPadlockKeyPostion;
+                        gameObject.transform.rotation = Quaternion.Euler(newPadlockKeyRotation);
+                    }
+                    else
+                    {
+                        StartCoroutine(CantPickUpText(4));
+                    }
                 }
             }
             else if (hit.collider.gameObject.name == "Crowbar")
@@ -224,17 +261,24 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[6].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact") && holding == "")
+                if (Input.GetButtonDown("Intereact"))
                 {
-                    holding = "Crowbar";
-                    GameObject gameObject = hit.collider.gameObject;
-                    crowbarGravity.useGravity = false;
-                    crowbarCollider.enabled = false;
-                    player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
-                    gameObject.transform.SetParent(player.transform);
-                    gameObject.transform.localPosition = Vector3.zero;
-                    gameObject.transform.localPosition = newCrowbarPostion;
-                    gameObject.transform.rotation = Quaternion.Euler(newCrowbarRotation);
+                    if (holding == "")
+                    {   
+                        holding = "Crowbar";
+                        GameObject gameObject = hit.collider.gameObject;
+                        crowbarGravity.useGravity = false;
+                        crowbarCollider.enabled = false;
+                        player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
+                        gameObject.transform.SetParent(player.transform);
+                        gameObject.transform.localPosition = Vector3.zero;
+                        gameObject.transform.localPosition = newCrowbarPostion;
+                        gameObject.transform.rotation = Quaternion.Euler(newCrowbarRotation);
+                    }
+                    else
+                    {
+                        StartCoroutine(CantPickUpText(5));
+                    }
                 }
             }
             else if (hit.collider.gameObject.name == "Chest Key")
@@ -245,17 +289,24 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[7].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact") && holding == "")
+                if (Input.GetButtonDown("Intereact"))
                 {
-                    holding = "Chest Key";
-                    GameObject gameObject = hit.collider.gameObject;
-                    chestKeyGravity.useGravity = false;
-                    chestKeyCollider.enabled = false;
-                    player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
-                    gameObject.transform.SetParent(player.transform);
-                    gameObject.transform.localPosition = Vector3.zero;
-                    gameObject.transform.localPosition = newChestKeyPostion;
-                    gameObject.transform.rotation = Quaternion.Euler(newChestKeyRotation);
+                    if ( holding == "")
+                    {   
+                        holding = "Chest Key";
+                        GameObject gameObject = hit.collider.gameObject;
+                        chestKeyGravity.useGravity = false;
+                        chestKeyCollider.enabled = false;
+                        player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
+                        gameObject.transform.SetParent(player.transform);
+                        gameObject.transform.localPosition = Vector3.zero;
+                        gameObject.transform.localPosition = newChestKeyPostion;
+                        gameObject.transform.rotation = Quaternion.Euler(newChestKeyRotation);
+                    }
+                    else
+                    {
+                        StartCoroutine(CantPickUpText(6));
+                    }
                 }
             }
             else if (hit.collider.gameObject.name == "Red Key")
@@ -266,17 +317,24 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[8].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact") && holding == "")
+                if (Input.GetButtonDown("Intereact"))
                 {
-                    holding = "Red Key";
-                    GameObject gameObject = hit.collider.gameObject;
-                    redKeyGravity.useGravity = false;
-                    redKeyCollider.enabled = false;
-                    player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
-                    gameObject.transform.SetParent(player.transform);
-                    gameObject.transform.localPosition = Vector3.zero;
-                    gameObject.transform.localPosition = newFloorKeyPostion;
-                    gameObject.transform.rotation = Quaternion.Euler(newFloorKeyRotation);
+                    if( holding == "")
+                    {   
+                        holding = "Red Key";
+                        GameObject gameObject = hit.collider.gameObject;
+                        redKeyGravity.useGravity = false;
+                        redKeyCollider.enabled = false;
+                        player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
+                        gameObject.transform.SetParent(player.transform);
+                        gameObject.transform.localPosition = Vector3.zero;
+                        gameObject.transform.localPosition = newFloorKeyPostion;
+                        gameObject.transform.rotation = Quaternion.Euler(newFloorKeyRotation);
+                    }
+                    else
+                    {
+                        StartCoroutine(CantPickUpText(7));
+                    }
                 }
             }
             else if (hit.collider.gameObject.name == "Blue Key")
@@ -287,17 +345,24 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[9].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact") && holding == "")
+                if (Input.GetButtonDown("Intereact"))
                 {
-                    holding = "Blue Key";
-                    GameObject gameObject = hit.collider.gameObject;
-                    blueKeyGravity.useGravity = false;
-                    blueKeyCollider.enabled = false;
-                    player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
-                    gameObject.transform.SetParent(player.transform);
-                    gameObject.transform.localPosition = Vector3.zero;
-                    gameObject.transform.localPosition = newFloorKeyPostion;
-                    gameObject.transform.rotation = Quaternion.Euler(newFloorKeyRotation);
+                    if (holding == "")
+                    {   
+                        holding = "Blue Key";
+                        GameObject gameObject = hit.collider.gameObject;
+                        blueKeyGravity.useGravity = false;
+                        blueKeyCollider.enabled = false;
+                        player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
+                        gameObject.transform.SetParent(player.transform);
+                        gameObject.transform.localPosition = Vector3.zero;
+                        gameObject.transform.localPosition = newFloorKeyPostion;
+                        gameObject.transform.rotation = Quaternion.Euler(newFloorKeyRotation);
+                    }
+                    else
+                    {
+                        StartCoroutine(CantPickUpText(8));
+                    } 
                 }
             }
             else if (hit.collider.gameObject.name == "Black Key")
@@ -308,17 +373,24 @@ public class MouseInteract : MonoBehaviour
                 }
                 uIS[10].SetActive(true);
 
-                if (Input.GetButtonDown("Intereact") && holding == "")
+                if (Input.GetButtonDown("Intereact"))
                 {
-                    holding = "Black Key";
-                    GameObject gameObject = hit.collider.gameObject;
-                    blackKeyGravity.useGravity = false;
-                    blackKeyCollider.enabled = false;
-                    player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
-                    gameObject.transform.SetParent(player.transform);
-                    gameObject.transform.localPosition = Vector3.zero;
-                    gameObject.transform.localPosition = newFloorKeyPostion;
-                    gameObject.transform.rotation = Quaternion.Euler(newFloorKeyRotation);
+                    if ( holding == "")
+                    {   
+                        holding = "Black Key";
+                        GameObject gameObject = hit.collider.gameObject;
+                        blackKeyGravity.useGravity = false;
+                        blackKeyCollider.enabled = false;
+                        player.transform.rotation = Quaternion.Euler(playerRotationWhenHavingAKey);
+                        gameObject.transform.SetParent(player.transform);
+                        gameObject.transform.localPosition = Vector3.zero;
+                        gameObject.transform.localPosition = newFloorKeyPostion;
+                        gameObject.transform.rotation = Quaternion.Euler(newFloorKeyRotation);
+                    }
+                    else
+                    {
+                        StartCoroutine(CantPickUpText(9));
+                    }
                 }
             }
             else if (hit.collider.gameObject.name == "Floor 2 Door")
@@ -331,9 +403,14 @@ public class MouseInteract : MonoBehaviour
 
                 if (Input.GetButtonDown("Intereact"))
                 {
-                    GameObject gameObject = hit.collider.gameObject;
-                    player.transform.position = playerPositionInSecondFloor;
-                    player.transform.rotation = Quaternion.Euler(playerRotationInSecondFloor);
+                    if (holding == "Floor Key")
+                    {
+                        GameObject gameObject = hit.collider.gameObject;
+                        player.transform.position = playerPositionInSecondFloor;
+                        player.transform.rotation = Quaternion.Euler(playerRotationInSecondFloor);
+                    }
+                    else { 
+                    }
                 }
             }
             else if (hit.collider.gameObject.name == "Floor 1 Door")
@@ -462,5 +539,16 @@ public class MouseInteract : MonoBehaviour
                 holding = "";
             }
         }
+    }
+
+    IEnumerator CantPickUpText(int itemIndex)
+    {
+        for (int i = 0; i < cantPickUpUI.Count; i++)
+        {
+            cantPickUpUI[i].SetActive(false);
+        }
+        cantPickUpUI[itemIndex].SetActive(true);
+        yield return new WaitForSeconds(3f);
+        cantPickUpUI[itemIndex].SetActive(false);
     }
 }
