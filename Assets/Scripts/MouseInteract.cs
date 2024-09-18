@@ -86,6 +86,7 @@ public class MouseInteract : MonoBehaviour
 
     [Header("Unlocked/Locked")]
     public bool isFloor2Unlocked = false;
+    public bool isChestUnlocked = false;
 
 
     void Start()

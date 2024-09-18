@@ -1099,6 +1099,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 455519331}
+  - component: {fileID: 455519332}
   m_Layer: 0
   m_Name: Keys
   m_TagString: Untagged
@@ -1130,6 +1131,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &455519332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455519330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808083334aeb55d44a57f838a35824ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keys: []
+  lockerKeyPositionOnDrawer: {x: 0, y: 0, z: 0}
+  lockerKeyPositionOnDesk: {x: 0, y: 0, z: 0}
+  floorKeyPositionOnLivingRoomTable: {x: 0, y: 0, z: 0}
+  floorKeyPositionInLocker: {x: 0, y: 0, z: 0}
+  barrelKeyPositionOnDrawer: {x: 0, y: 0, z: 0}
+  barrelKeyPositionOnDesk: {x: 0, y: 0, z: 0}
+  safeKeyPositionOnKitchenCounter: {x: 0, y: 0, z: 0}
+  safeKeyPositionInBarrel: {x: 0, y: 0, z: 0}
+  padlockKeyPositionOnKitchenCounter: {x: 0, y: 0, z: 0}
+  padlockKeyPositionInBarrel: {x: 0, y: 0, z: 0}
+  chestKeyPositionOnLivingRoomTable: {x: 0, y: 0, z: 0}
+  chestKeyPositionInLocker: {x: 0, y: 0, z: 0}
 --- !u!1 &479464263 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 374289202576707483, guid: 78df1db2fbc8ec64f949fac0c05bf693, type: 3}
@@ -4164,6 +4190,7 @@ MonoBehaviour:
   blackKeyGravity: {fileID: 769845682}
   blackKeyCollider: {fileID: 769845680}
   isFloor2Unlocked: 0
+  isChestUnlocked: 0
 --- !u!4 &1323175588 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6138375337819731167, guid: 528a0e588f6fa5447928329240509219, type: 3}
