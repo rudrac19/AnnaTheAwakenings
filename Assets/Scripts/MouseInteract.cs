@@ -8,6 +8,8 @@ public class MouseInteract : MonoBehaviour
     public float offsetDistance;
     public string holding = "";
     public GameObject keys;
+    public GameObject chestOpened;
+    public GameObject chestClosed;
 
     public GameObject[] cantPickUpUI;
     public GameObject[] uIS;
@@ -438,18 +440,24 @@ public class MouseInteract : MonoBehaviour
                     player.transform.rotation = Quaternion.Euler(playerRotationInFirstFloor);
                 }
             }
-            else if (hit.collider.gameObject.name == "Chest")
+            else if (hit.collider.gameObject.name == "chest_close")
             {
                 foreach (GameObject uI in uIS)
                 {
                     uI.SetActive(false);
                 }
-                uIS[0].SetActive(true);
+                uIS[13].SetActive(true);
 
                 if (Input.GetButtonDown("Intereact"))
                 {
-                    GameObject gameObject = hit.collider.gameObject;
-                    uIS[0].SetActive(true);
+                    if (holding == "Chest Key" && !isChestUnlocked)
+                    {
+                        GameObject gameObject = hit.collider.gameObject;
+                        gameObject.SetActive(false);
+                        chestOpened.SetActive(true);
+                        blackKey.SetActive(true);
+                        isChestUnlocked = true;
+                    }
                 }
             }
             else if (hit.collider.gameObject.name == "Barrels")
