@@ -89,6 +89,7 @@ public class MouseInteract : MonoBehaviour
     [Header("Unlocked/Locked")]
     public bool isFloor2Unlocked = false;
     public bool isChestUnlocked = false;
+    public int isDoorUnlocked = 0; // 3 means opened
 
 
     void Start()
@@ -457,6 +458,30 @@ public class MouseInteract : MonoBehaviour
                         chestOpened.SetActive(true);
                         blackKey.SetActive(true);
                         isChestUnlocked = true;
+                    }
+                }
+            }
+            else if (hit.collider.gameObject.name == "Door Opener")
+            {
+                foreach (GameObject uI in uIS)
+                {
+                    uI.SetActive(false);
+                }
+                uIS[14].SetActive(true);
+
+                if (Input.GetButtonDown("Intereact"))
+                {
+                    if (holding == "Black Key" )
+                    {
+                        isDoorUnlocked++;
+                    }
+                    if (holding == "Blue Key")
+                    {
+                        isDoorUnlocked++;
+                    }
+                    if (holding == "Red Key")
+                    {
+                        isDoorUnlocked++;
                     }
                 }
             }
