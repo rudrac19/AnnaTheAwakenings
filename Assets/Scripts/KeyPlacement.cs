@@ -74,6 +74,15 @@ public class KeyPlacement : MonoBehaviour
 
     void PlaceTheKeys()
     {
-
+        if (locationOfLockerKey == 0)
+        {
+            keys[0].transform.localPosition = lockerKeyPositionOnDrawer;
+            keys[2].transform.localPosition = barrelKeyPositionOnDesk;
+        }
+        else if (locationOfLockerKey == 1)
+        {
+            keys[0].transform.localPosition = lockerKeyPositionOnDesk;
+            keys[2].transform.localPosition = barrelKeyPositionOnDrawer;
+        }
     }
 }
