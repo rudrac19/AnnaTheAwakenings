@@ -10,6 +10,10 @@ public class MouseInteract : MonoBehaviour
     public GameObject keys;
     public GameObject chestOpened;
     public GameObject chestClosed;
+    public GameObject correctBarrel;
+    public GameObject wrongBarrel;
+    public GameObject brokenBarrel;
+    public KeyPlacement keyPlacement;
 
     public GameObject[] cantPickUpUI;
     public GameObject[] uIS;
@@ -90,6 +94,7 @@ public class MouseInteract : MonoBehaviour
     public bool isFloor2Unlocked = false;
     public bool isChestUnlocked = false;
     public int isDoorUnlocked = 0; // 3 means opened
+    public bool isBarrelUnlocked = false;
 
 
     void Start()
@@ -485,18 +490,30 @@ public class MouseInteract : MonoBehaviour
                     }
                 }
             }
-            else if (hit.collider.gameObject.name == "Barrels")
+            else if (hit.collider.gameObject.name == "Correct Barrel")
             {
                 foreach (GameObject uI in uIS)
                 {
                     uI.SetActive(false);
                 }
-                uIS[0].SetActive(true);
+                uIS[15].SetActive(true);
 
                 if (Input.GetButtonDown("Intereact"))
                 {
-                    GameObject gameObject = hit.collider.gameObject;
-                    uIS[0].SetActive(true);
+                    if (holding == "Barrel Key" && !isBarrelUnlocked)
+                    {   
+                        correctBarrel.SetActive(false);
+                        brokenBarrel.SetActive(true);
+                        Debug.Log(keyPlacement.locationOfSafeKey.ToString());
+                        if (keyPlacement.locationOfSafeKey == 0)
+                        {
+                            padlockKey.SetActive(true);
+                        }
+                        else if (keyPlacement.locationOfSafeKey == 1)
+                        {
+                            safeKey.SetActive(true);
+                        }
+                    }
                 }
             }
             else

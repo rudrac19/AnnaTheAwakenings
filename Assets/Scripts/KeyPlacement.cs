@@ -11,7 +11,7 @@ public class KeyPlacement : MonoBehaviour
     int locationOfLockerKey; // Locker Key -- Barrel Key
     int locationOfFloorKey;// Floor Key -- Chest Key
     int locationOfBarrelKey;// Locker Key -- Barrel Key
-    int locationOfSafeKey;// Safe Key -- Padlock Key
+    public int locationOfSafeKey;// Safe Key -- Padlock Key
     int locationOfPadlockKey;// Safe Key -- Padlock Key
     int locationOfChestKey;// Floor Key -- Chest Key
 
@@ -74,6 +74,8 @@ public class KeyPlacement : MonoBehaviour
 
     void PlaceTheKeys()
     {
+        // Locker Key -- Barrel Key
+
         if (locationOfLockerKey == 0)
         {
             keys[0].transform.localPosition = lockerKeyPositionOnDrawer;
@@ -83,6 +85,34 @@ public class KeyPlacement : MonoBehaviour
         {
             keys[0].transform.localPosition = lockerKeyPositionOnDesk;
             keys[2].transform.localPosition = barrelKeyPositionOnDrawer;
+        }
+
+        // FLoor Key -- Chest Key
+
+        if (locationOfFloorKey == 0)
+        {
+            keys[1].transform.localPosition = floorKeyPositionOnLivingRoomTable;
+            keys[5].transform.localPosition = chestKeyPositionInLocker;
+        }
+        else if (locationOfFloorKey == 1)
+        {
+            keys[1].transform.localPosition = floorKeyPositionInLocker;
+            keys[5].transform.localPosition = chestKeyPositionOnLivingRoomTable;
+        }
+
+        // Safe Key -- Padlock Key
+
+        if (locationOfSafeKey == 0)
+        {
+            keys[3].transform.localPosition = safeKeyPositionOnKitchenCounter;
+            keys[3].gameObject.SetActive(true);
+            keys[4].transform.localPosition = padlockKeyPositionInBarrel;
+        }
+        else if (locationOfSafeKey == 1)
+        {
+            keys[3].transform.localPosition = safeKeyPositionInBarrel;
+            keys[4].gameObject.SetActive(true);
+            keys[4].transform.localPosition = padlockKeyPositionOnKitchenCounter;
         }
     }
 }
