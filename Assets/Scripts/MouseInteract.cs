@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MouseInteract : MonoBehaviour
 {
@@ -13,7 +14,10 @@ public class MouseInteract : MonoBehaviour
     public GameObject correctBarrel;
     public GameObject wrongBarrel;
     public GameObject brokenBarrel;
+    public GameObject safe;
+    public GameObject lever;
     public KeyPlacement keyPlacement;
+    public Animator animator;
 
     public GameObject[] cantPickUpUI;
     public GameObject[] uIS;
@@ -95,6 +99,8 @@ public class MouseInteract : MonoBehaviour
     public bool isChestUnlocked = false;
     public int isDoorUnlocked = 0; // 3 means opened
     public bool isBarrelUnlocked = false;
+    public bool isSafeUnlocked = false;
+    public bool isLeverUnlocked = false;
 
 
     void Start()
@@ -488,6 +494,10 @@ public class MouseInteract : MonoBehaviour
                     {
                         isDoorUnlocked++;
                     }
+                    if (isDoorUnlocked == 3)
+                    {
+                        SceneManager.LoadScene("You Won");
+                    }
                 }
             }
             else if (hit.collider.gameObject.name == "Correct Barrel")
@@ -513,6 +523,41 @@ public class MouseInteract : MonoBehaviour
                         {
                             safeKey.SetActive(true);
                         }
+                    }
+                }
+            }
+            else if (hit.collider.gameObject.name == "Safe")
+            {
+                foreach (GameObject uI in uIS)
+                {
+                    uI.SetActive(false);
+                }
+                uIS[16].SetActive(true);
+
+                if (Input.GetButtonDown("Intereact"))
+                {
+                    if (holding == "Safe Key" && !isSafeUnlocked)
+                    {
+                        safe.SetActive(false);
+                        blueKey.SetActive(true);
+                        isSafeUnlocked = true;
+                    }
+                }
+            }
+            else if (hit.collider.gameObject.name == "Whole Lever")
+            {
+                foreach (GameObject uI in uIS)
+                {
+                    uI.SetActive(false);
+                }
+                uIS[17].SetActive(true);
+
+                if (Input.GetButtonDown("Intereact"))
+                {
+                    if (holding == "Padlock Key" && !isLeverUnlocked)
+                    {
+                        StartCoroutine(Go());
+                        isLeverUnlocked = true;
                     }
                 }
             }
@@ -610,6 +655,14 @@ public class MouseInteract : MonoBehaviour
         cantPickUpUI[itemIndex].SetActive(true);
         yield return new WaitForSeconds(3f);
         cantPickUpUI[itemIndex].SetActive(false);
+    }
+
+    IEnumerator Go()
+    {
+        animator.SetTrigger("Go");
+        yield return new WaitForSeconds(1.5f);
+        redKeyGravity.useGravity = true;
+        redKeyCollider.enabled = true;
     }
 
     public void Drop()
