@@ -18,6 +18,7 @@ public class MouseInteract : MonoBehaviour
     public GameObject lever;
     public KeyPlacement keyPlacement;
     public Animator animator;
+    public static string floor;
 
     public GameObject[] cantPickUpUI;
     public GameObject[] uIS;
@@ -110,6 +111,7 @@ public class MouseInteract : MonoBehaviour
             uI.SetActive(false);
         }
         uIS[0].SetActive(true);
+        floor = "one";
     }
     
     void Update()
@@ -126,7 +128,7 @@ public class MouseInteract : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                Debug.Log(hit.collider.gameObject.name);
+                //Debug.Log(hit.collider.gameObject.name);
             }
 
             if (hit.collider.gameObject.name == "Locker Key")
@@ -428,12 +430,14 @@ public class MouseInteract : MonoBehaviour
                         player.transform.position = playerPositionInSecondFloor;
                         player.transform.rotation = Quaternion.Euler(playerRotationInSecondFloor);
                         isFloor2Unlocked = true;
+                        floor = "floor two";
                     }
                     else if (isFloor2Unlocked)
                     {
                         GameObject gameObject = hit.collider.gameObject;
                         player.transform.position = playerPositionInSecondFloor;
                         player.transform.rotation = Quaternion.Euler(playerRotationInSecondFloor);
+                        floor = "floor two";
                     }
                 }
             }
@@ -450,6 +454,7 @@ public class MouseInteract : MonoBehaviour
                     GameObject gameObject = hit.collider.gameObject;
                     player.transform.position = playerPositionInFirstFloor;
                     player.transform.rotation = Quaternion.Euler(playerRotationInFirstFloor);
+                    floor = "floor one";
                 }
             }
             else if (hit.collider.gameObject.name == "chest_close")
