@@ -430,14 +430,14 @@ public class MouseInteract : MonoBehaviour
                         player.transform.position = playerPositionInSecondFloor;
                         player.transform.rotation = Quaternion.Euler(playerRotationInSecondFloor);
                         isFloor2Unlocked = true;
-                        floor = "floor two";
+                        floor = "two";
                     }
                     else if (isFloor2Unlocked)
                     {
                         GameObject gameObject = hit.collider.gameObject;
                         player.transform.position = playerPositionInSecondFloor;
                         player.transform.rotation = Quaternion.Euler(playerRotationInSecondFloor);
-                        floor = "floor two";
+                        floor = "two";
                     }
                 }
             }
@@ -454,7 +454,7 @@ public class MouseInteract : MonoBehaviour
                     GameObject gameObject = hit.collider.gameObject;
                     player.transform.position = playerPositionInFirstFloor;
                     player.transform.rotation = Quaternion.Euler(playerRotationInFirstFloor);
-                    floor = "floor one";
+                    floor = "one";
                 }
             }
             else if (hit.collider.gameObject.name == "chest_close")
