@@ -102,6 +102,9 @@ public class MouseInteract : MonoBehaviour
     public bool isBarrelUnlocked = false;
     public bool isSafeUnlocked = false;
     public bool isLeverUnlocked = false;
+    public bool redUnlocked = false;
+    public bool blueUnlocked = false;
+    public bool blackUnlocked = false;
 
 
     void Start()
@@ -489,17 +492,17 @@ public class MouseInteract : MonoBehaviour
                 {
                     if (holding == "Black Key" )
                     {
-                        isDoorUnlocked++;
+                        blackUnlocked = true;
                     }
                     if (holding == "Blue Key")
                     {
-                        isDoorUnlocked++;
+                        blueUnlocked = true;    
                     }
                     if (holding == "Red Key")
                     {
-                        isDoorUnlocked++;
+                        redUnlocked = true;
                     }
-                    if (isDoorUnlocked == 3)
+                    if (redUnlocked && blueUnlocked && blackUnlocked)
                     {
                         SceneManager.LoadScene("You Won");
                     }
