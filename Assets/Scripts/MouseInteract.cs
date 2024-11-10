@@ -504,7 +504,7 @@ public class MouseInteract : MonoBehaviour
                     }
                     if (redUnlocked && blueUnlocked && blackUnlocked)
                     {
-                        SceneManager.LoadScene("You Won");
+                        SceneManager.LoadScene("Credits");
                     }
                 }
             }

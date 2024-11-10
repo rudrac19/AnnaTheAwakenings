@@ -26,7 +26,7 @@ public class Anna : MonoBehaviour
         if (annaLocation == MouseInteract.floor)
         {
             Debug.Log("ur dead");
-            SceneManager.LoadScene("You Won");
+            SceneManager.LoadScene("Game Over");
         }
     }
 
@@ -35,7 +35,7 @@ public class Anna : MonoBehaviour
         annaLocation = "two";
         if (annaLocation == MouseInteract.floor)
         {
-            SceneManager.LoadScene("You Won");
+            SceneManager.LoadScene("Game Over");
         }
         float timeToChange = Random.Range(10.0f, 30.0f);
 
@@ -55,7 +55,7 @@ public class Anna : MonoBehaviour
         annaLocation = "one";
         if (annaLocation == MouseInteract.floor)
         {
-            SceneManager.LoadScene("You Won");
+            SceneManager.LoadScene("Game Over");
         }
 
         // repeat for floor one
@@ -77,7 +77,7 @@ public class Anna : MonoBehaviour
         annaLocation = "two";
         if (annaLocation == MouseInteract.floor)
         {
-            SceneManager.LoadScene("You Won");
+            SceneManager.LoadScene("Game Over");
         }
         StartCoroutine(AnnaLocationChange());
     }
