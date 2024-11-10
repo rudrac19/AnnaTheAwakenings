@@ -3369,7 +3369,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '(E)
 
-    FInal Door Lock'
+    Color Lock'
 --- !u!222 &1010859014
 CanvasRenderer:
   m_ObjectHideFlags: 0
