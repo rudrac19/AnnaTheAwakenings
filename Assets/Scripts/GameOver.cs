@@ -19,7 +19,7 @@ public class GameOver : MonoBehaviour
     {
         attack.Play();
         anna.SetTrigger("Attack");
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(8f);
         SceneManager.LoadScene("Home");
     }
 }
