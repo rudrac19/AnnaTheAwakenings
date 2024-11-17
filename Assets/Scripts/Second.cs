@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class FirstVoice : MonoBehaviour
+public class Second : MonoBehaviour
 {
-    public AudioSource recordingOne;
+    public AudioSource second;
 
     // Start is called before the first frame update
     void Start()
@@ -16,8 +16,9 @@ public class FirstVoice : MonoBehaviour
     IEnumerator StartVoice()
     {
         yield return new WaitForSeconds(2f);
-        recordingOne.Play();
+        second.Play();
         yield return new WaitForSeconds(60f);
-        SceneManager.LoadScene("SampleScene"); 
+        SceneManager.LoadScene("Credits");
     }
+
 }

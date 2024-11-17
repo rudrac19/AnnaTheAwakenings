@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game Over.unity
     guid: 115f50c67ada7e344bf5b161457b780a
+  - enabled: 1
+    path: Assets/Scenes/Second.unity
+    guid: 66110af6a3a425b478c2fdffba48620a
+  - enabled: 1
+    path: Assets/Scenes/First Voice.unity
+    guid: f812b99928e885e4c8010ab54fbe3d61
   m_configObjects: {}

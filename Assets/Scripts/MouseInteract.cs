@@ -504,7 +504,7 @@ public class MouseInteract : MonoBehaviour
                     }
                     if (redUnlocked && blueUnlocked && blackUnlocked)
                     {
-                        SceneManager.LoadScene("Credits");
+                        SceneManager.LoadScene("Second");
                     }
                 }
             }
