@@ -53,8 +53,8 @@ public class AN_PlugScript : MonoBehaviour
 
         if (follow)
         {
-            rb.drag = 10f;
-            rb.angularDrag = 10f;
+            rb.linearDamping = 10f;
+            rb.angularDamping = 10f;
             if (followFlag)
             {
                 distance = Vector3.Distance(transform.position, Camera.main.transform.position);
@@ -71,8 +71,8 @@ public class AN_PlugScript : MonoBehaviour
         }
         else
         {
-            rb.drag = 0f;
-            rb.angularDrag = .5f;
+            rb.linearDamping = 0f;
+            rb.angularDamping = .5f;
         }
     }
 
