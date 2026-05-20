@@ -19,14 +19,14 @@ Basic horror game where you find keys, and unlock locks to escape Anna's house.
 
 <h3>RELEASE*</h3>
 <ul>
-  <li><h4>November 30, 2025</h4>
+  <li><h4>November 30, 2024</h4>
       <ul>
           <li>Itch.io</li>
           <li>Newgrounds</li>
      </ul>
   </li>
 
- <li><h4>Upcoming</h4>
+ <li><h4>Upcoming (TBD)</h4>
       <ul>
           <li>Steam</li>
           <li>Google Play Store</li>
